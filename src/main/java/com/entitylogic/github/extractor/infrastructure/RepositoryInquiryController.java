@@ -26,10 +26,12 @@ class RepositoryInquiryController {
 
     @GetMapping
     ResponseEntity<List<GithubRepositoryDto>> inquiryTopRepositories(
-            @RequestParam(required = false, name = "limit") Integer limit
+            @RequestParam(required = false, name = "limit") Integer limit,
+            @RequestParam(required = false, name = "language") String language
     ) throws GithubException {
         GithubQueryParams.GithubQueryParamsBuilder githubQueryParamsBuilder = GithubQueryParams.builder();
         Optional.ofNullable(limit).ifPresent(githubQueryParamsBuilder::limit);
+        Optional.ofNullable(language).ifPresent(githubQueryParamsBuilder::language);
         return new ResponseEntity<>(
                 githubModelMapper.mapToRepositoryDtoList(
                         githubService.getRepositories(githubQueryParamsBuilder.build())

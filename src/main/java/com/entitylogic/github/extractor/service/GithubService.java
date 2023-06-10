@@ -19,6 +19,8 @@ public class GithubService {
         Stream<GithubRepository> githubRepositoryStream = githubClient.getRepositories().stream();
         if (params.getLimit() != null)
             githubRepositoryStream = githubRepositoryStream.limit(params.getLimit());
+        if (params.getLanguage() != null)
+            githubRepositoryStream = githubRepositoryStream.filter(gr -> gr.getLanguage().equals(params.getLanguage()));
         return githubRepositoryStream.toList();
     }
 }

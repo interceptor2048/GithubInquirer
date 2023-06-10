@@ -52,4 +52,19 @@ class GithubServiceTest {
         // then
         assertEquals(1, result.size());
     }
+
+    @Test
+    void shouldFetchOnlyPythonRepository() throws GithubException {
+        // given
+        List<GithubRepository> reposList = List.of(
+                GithubRepository.of("1", "name1", "Project name1", "tbd1", "java"),
+                GithubRepository.of("2", "name2", "Project name2", "tbd2", "python")
+        );
+        Mockito.when(githubClient.getRepositories()).thenReturn(reposList);
+        GithubQueryParams githubQueryParams = new GithubQueryParams.GithubQueryParamsBuilder().language("python").build();
+        // when
+        List<GithubRepository> result = underTest.getRepositories(githubQueryParams);
+        // then
+        assertEquals(1, result.size());
+    }
 }

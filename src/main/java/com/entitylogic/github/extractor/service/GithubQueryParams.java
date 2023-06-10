@@ -7,4 +7,5 @@ import lombok.Getter;
 @Getter
 public class GithubQueryParams {
     private Integer limit;
+    private String language;
 }
