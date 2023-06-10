@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "7bfc73ff-5327-4b54-9768-791bb15027f8",
+		"name": "GithubExtractor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetTopRepositories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/repositories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"repositories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTopRepositories limit 10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/repositories?limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"repositories"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTopRepositories language java",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/repositories?language=java",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"repositories"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "java"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

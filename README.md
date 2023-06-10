@@ -19,3 +19,7 @@ For API documentation please run the application and refer to Swagger:
 http://localhost:8080/swagger-ui/index.html
 
 You can find publicly exposed API methods there, along with Actuator working endpoints (for the microservice status monitoring).
+
+## Testing
+
+You can use Postman Collection saved in `./postman` directory to run Postman queries against the App. 
