@@ -1,14 +1,12 @@
 package com.entitylogic.github.extractor.model.dto;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 public class GithubRepositoryDto {
 
-    private String id;
-    private String name;
-    private String fullName;
-    private String description;
+    private final String id;
+    private final String name;
+    private final String fullName;
+    private final String description;
 }
