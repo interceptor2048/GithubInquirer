@@ -24,6 +24,7 @@ public class GithubClient {
 
     public List<GithubRepository> getRepositories() throws GithubException {
         try {
+            log.debug("Sending github request: {}", url());
             GithubRepositoriesResponse inquiredRepos = restTemplate.getForObject(url(), GithubRepositoriesResponse.class);
             if (inquiredRepos != null) {
                 return inquiredRepos.getItems();

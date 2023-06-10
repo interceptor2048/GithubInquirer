@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -14,7 +15,10 @@ public class GithubService {
 
     private final GithubClient githubClient;
 
-    public List<GithubRepository> getRepositories() throws GithubException {
-        return githubClient.getRepositories();
+    public List<GithubRepository> getRepositories(GithubQueryParams params) throws GithubException {
+        Stream<GithubRepository> githubRepositoryStream = githubClient.getRepositories().stream();
+        if (params.getLimit() != null)
+            githubRepositoryStream = githubRepositoryStream.limit(params.getLimit());
+        return githubRepositoryStream.toList();
     }
 }
