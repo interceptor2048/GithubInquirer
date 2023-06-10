@@ -1,5 +1,6 @@
 package com.entitylogic.github.extractor.infrastructure;
 
+import com.entitylogic.github.extractor.client.github.GithubException;
 import com.entitylogic.github.extractor.mapper.GithubModelMapper;
 import com.entitylogic.github.extractor.model.dto.GithubRepositoryDto;
 import com.entitylogic.github.extractor.service.GithubService;
@@ -21,7 +22,7 @@ class RepositoryInquiryController {
     private final GithubModelMapper githubModelMapper;
 
     @GetMapping
-    ResponseEntity<List<GithubRepositoryDto>> inquiryTopRepositories() {
+    ResponseEntity<List<GithubRepositoryDto>> inquiryTopRepositories() throws GithubException {
         return new ResponseEntity<>(
                 githubModelMapper.mapToRepositoryDtoList(githubService.getRepositories()),
                 HttpStatus.OK);
