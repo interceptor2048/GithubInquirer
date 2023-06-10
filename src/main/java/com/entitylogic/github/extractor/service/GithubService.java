@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
@@ -20,7 +21,7 @@ public class GithubService {
         if (params.getLimit() != null)
             githubRepositoryStream = githubRepositoryStream.limit(params.getLimit());
         if (params.getLanguage() != null)
-            githubRepositoryStream = githubRepositoryStream.filter(gr -> gr.getLanguage().equals(params.getLanguage()));
+            githubRepositoryStream = githubRepositoryStream.filter(gr -> params.getLanguage().equalsIgnoreCase(gr.getLanguage()));
         return githubRepositoryStream.toList();
     }
 }
