@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
 class GithubServiceTest {
@@ -30,7 +31,7 @@ class GithubServiceTest {
                 GithubRepository.of("1", "name1", "Project name1", "tbd1", "java"),
                 GithubRepository.of("2", "name2", "Project name2", "tbd2", "python")
         );
-        Mockito.when(githubClient.getRepositories()).thenReturn(reposList);
+        Mockito.when(githubClient.getRepositories(any())).thenReturn(reposList);
         GithubQueryParams githubQueryParams = new GithubQueryParams.GithubQueryParamsBuilder().build();
         // when
         List<GithubRepository> result = underTest.getRepositories(githubQueryParams);
@@ -45,7 +46,7 @@ class GithubServiceTest {
                 GithubRepository.of("1", "name1", "Project name1", "tbd1", "java"),
                 GithubRepository.of("2", "name2", "Project name2", "tbd2", "python")
         );
-        Mockito.when(githubClient.getRepositories()).thenReturn(reposList);
+        Mockito.when(githubClient.getRepositories(any())).thenReturn(reposList);
         GithubQueryParams githubQueryParams = new GithubQueryParams.GithubQueryParamsBuilder().limit(1).build();
         // when
         List<GithubRepository> result = underTest.getRepositories(githubQueryParams);
@@ -60,7 +61,7 @@ class GithubServiceTest {
                 GithubRepository.of("1", "name1", "Project name1", "tbd1", "java"),
                 GithubRepository.of("2", "name2", "Project name2", "tbd2", "python")
         );
-        Mockito.when(githubClient.getRepositories()).thenReturn(reposList);
+        Mockito.when(githubClient.getRepositories(any())).thenReturn(reposList);
         GithubQueryParams githubQueryParams = new GithubQueryParams.GithubQueryParamsBuilder().language("python").build();
         // when
         List<GithubRepository> result = underTest.getRepositories(githubQueryParams);
