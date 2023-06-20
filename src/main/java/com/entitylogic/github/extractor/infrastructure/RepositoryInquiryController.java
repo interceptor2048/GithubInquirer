@@ -1,12 +1,10 @@
 package com.entitylogic.github.extractor.infrastructure;
 
-import com.entitylogic.github.extractor.client.github.GithubException;
 import com.entitylogic.github.extractor.mapper.GithubModelMapper;
 import com.entitylogic.github.extractor.model.dto.GithubRepositoryDto;
 import com.entitylogic.github.extractor.service.GithubQueryParams;
 import com.entitylogic.github.extractor.service.GithubService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.web.format.DateTimeFormatters;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
